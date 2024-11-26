@@ -1,6 +1,7 @@
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
 import { HeaderSection } from './sections/header.section';
 import { countries as Country } from '@prisma/client';
+import { footerSection } from './sections/footer.section';
 
 interface ReportOptions {
   title?: string;
@@ -18,11 +19,12 @@ export const countriesReport = (
       title: title ?? 'Countries',
       subTitle: subTitle ?? 'List of countries',
     }),
+    footer: footerSection,
     pageOrientation: 'landscape',
     pageMargins: [40, 110, 40, 60],
     content: [
       {
-        layout: 'headerLineOnly', // optional
+        layout: 'lightHorizontalLines', // optional
         table: {
           // headers are automatically repeated if the table spans over multiple pages
           // you can declare how many rows should be treated as headers
