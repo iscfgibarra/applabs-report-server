@@ -37,10 +37,38 @@ export const countriesReport = (
               country.id.toString(),
               country.iso2,
               country.iso3,
-              { text: country.name, bold: true},
+              { text: country.name, bold: true },
               country.local_name,
               country.continent,
             ]),
+            ['', '', '', '', '', ''],
+            ['', '', '', '', 'Totales', `${countries.length} paises`],
+          ],
+        },
+      },
+      {
+        text: 'Totales',
+        fontSize: 18,
+        bold: true,
+        margin: [0, 10, 0, 0],
+      },
+      {
+        layout: 'noBorders',
+        table: {
+          headerRows: 1,
+          body: [
+            [
+              {
+                text: 'Total de paises',
+                bold: true,
+
+              },
+              {
+                text: `${countries.length} paises`,
+                bold: true,
+
+              },
+            ],
           ],
         },
       },
